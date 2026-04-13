@@ -46,14 +46,14 @@ h2::after {
   border-radius: 10px;
 }
 
-/* الأقسام */
+/* تنسيق الأقسام */
 section { padding: 3rem 0; }
 #about { padding-top: 1rem; }
 
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 2rem;
+.container { 
+  max-width: 1100px; 
+  margin: 0 auto; 
+  padding: 0 2rem; 
 }
 
 /* ========================= */
@@ -235,68 +235,31 @@ p {
 }
 
 /* ========================= */
-/* 📱 Mobile Fix */
+/* 📱 Mobile Fix (خفيف فقط) */
 /* ========================= */
 
 @media (max-width: 768px) {
 
   .container {
-    padding: 0 1rem;
+    padding: 0 1.2rem;
   }
 
-  section {
-    padding: 2rem 0;
+  /* حل مشكلة خروج التاريخ */
+  .timeline-item .date {
+    position: static;
+    display: block;
+    margin-bottom: 6px;
   }
 
-  h2 {
-    font-size: 1.6rem;
-  }
-
-  .project-card,
-  .experience-card {
-    padding: 1.2rem;
-  }
-
-  .experience-card {
-    padding-left: 1.2rem;
-  }
-
-  .timeline {
-    padding-left: 1.5rem;
-  }
-
-  .timeline::before {
-    left: 5px;
-  }
-
-  .timeline-dot {
-    left: -20px;
-  }
-
+  /* ترتيب العناصر */
   .timeline-item {
     flex-direction: column;
     align-items: flex-start;
   }
 
-  /* أهم إصلاح 🔥 */
-  .timeline-item .date {
-    position: static;
-    display: block;
-    margin-bottom: 4px;
-    font-size: 0.7rem;
+  /* تعديل بسيط للدائرة */
+  .timeline-dot {
+    left: -22px;
   }
 
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ========================= */
-/* 💻 Tablet تحسين */
-/* ========================= */
-
-@media (min-width: 769px) and (max-width: 1024px) {
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
