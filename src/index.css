@@ -1,7 +1,4 @@
-/* ========================= */
-/* 🎨 COLORS + THEME */
-/* ========================= */
-
+/* الألوان والخطوط */
 :root {
   --bg-color: #ffffff;
   --text-main: #111827;
@@ -12,16 +9,14 @@
 }
 
 body.dark {
-  --bg-color: #0b1220;
+  --bg-color: #0b1220; /* أغمق = احترافي أكثر */
   --text-main: #f3f4f6;
   --text-sub: #9ca3af;
   --border-color: #1f2937;
   --card-bg: rgba(17, 24, 39, 0.7);
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
@@ -31,114 +26,33 @@ body {
   transition: all 0.3s ease;
 }
 
-/* ========================= */
-/* 🧱 LAYOUT */
-/* ========================= */
-
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-section {
-  padding: 3rem 0;
-}
-
-/* ========================= */
-/* 🔥 NAVBAR */
-/* ========================= */
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 70px;
-  padding: 0 2rem;
-  z-index: 1000;
-  background: transparent;
-}
-
-.nav-logo img {
-  height: 50px;
-}
-
-.nav-links {
-  display: flex;
-  gap: 2rem;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: inherit;
-  font-size: 0.9rem;
-}
-
-.mode-btn {
-  border: 1px solid var(--border-color);
-  background: none;
-  padding: 5px 12px;
-  border-radius: 20px;
-  cursor: pointer;
-  color: inherit;
-}
-
-/* ========================= */
-/* 🚀 HERO */
-/* ========================= */
-
-.hero-container {
-  padding: 120px 2rem 4rem;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.hero-title {
-  font-size: 64px; /* fallback */
-  font-size: clamp(32px, 6vw, 64px);
-  line-height: 1.2;
-  margin-bottom: 1rem;
-}
-
-.hero-title span {
-  display: block;
-  color: var(--accent);
-  font-size: 40px; /* fallback */
-  font-size: clamp(20px, 4vw, 40px);
-}
-
-.hero-desc {
-  font-size: 20px; /* fallback */
-  font-size: clamp(16px, 2.5vw, 20px);
-  color: var(--text-sub);
-  max-width: 700px;
-  line-height: 1.6;
+/* العناوين */
+h2 {
+  font-size: 2.2rem;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 12px;
   margin-bottom: 2rem;
 }
 
-.cv-btn {
-  padding: 0.9rem 2.5rem;
-  border-radius: 50px;
-  border: none;
-  background: var(--text-main);
-  color: var(--bg-color);
-  font-weight: bold;
-  cursor: pointer;
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right, var(--accent), transparent);
+  border-radius: 10px;
 }
 
-/* منع تكسير النص */
-.hero-title,
-.hero-title span {
-  white-space: normal;
-  overflow-wrap: break-word;
-}
+/* تنسيق الأقسام */
+section { padding: 3rem 0; }
+#about { padding-top: 1rem; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
 
 /* ========================= */
-/* 📦 CARDS */
+/* 🔥 Cards (تحسين كبير هنا) */
 /* ========================= */
 
 .project-card,
@@ -146,114 +60,180 @@ section {
   background: var(--card-bg);
   border: 1px solid var(--border-color);
   border-radius: 20px;
-  padding: 1.5rem;
-  transition: 0.3s;
+  padding: 1.8rem;
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
 }
 
+/* Glow خفيف */
+.project-card::before,
+.experience-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(45,212,191,0.15), transparent 60%);
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.project-card:hover::before,
+.experience-card:hover::before {
+  opacity: 1;
+}
+
+/* Hover احترافي */
 .project-card:hover,
 .experience-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px) scale(1.01);
   border-color: var(--accent);
+  box-shadow: 0 10px 40px rgba(45, 212, 191, 0.15);
 }
 
 /* ========================= */
-/* 🧠 TIMELINE */
+/* Experience تحسين layout */
+/* ========================= */
+
+.experience-card {
+  padding-left: 3rem; /* ضبط المسافة */
+}
+
+/* Header spacing */
+.experience-card h3 {
+  margin-bottom: 5px;
+}
+
+.experience-card p {
+  margin: 0;
+}
+
+/* ========================= */
+/* Timeline احترافي */
 /* ========================= */
 
 .timeline {
   position: relative;
-  padding-left: 1.5rem;
+  padding-left: 2rem;
+  margin-top: 1.5rem;
 }
 
 .timeline::before {
   content: '';
   position: absolute;
-  left: 6px;
+  left: 7px;
   top: 0;
   bottom: 0;
   width: 2px;
-  background: var(--accent);
+  background: linear-gradient(to bottom, var(--accent), transparent);
 }
 
+/* كل عنصر */
 .timeline-item {
   position: relative;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
+/* الدائرة */
 .timeline-dot {
   position: absolute;
-  left: -18px;
+  left: -28px;
   width: 10px;
   height: 10px;
   background: var(--accent);
   border-radius: 50%;
+  box-shadow: 0 0 12px var(--accent);
 }
 
+/* النص */
+.timeline-item span:last-child {
+  font-size: 0.95rem;
+  color: var(--text-main);
+}
+
+/* التاريخ */
 .timeline-item .date {
-  position: static; /* FIX للموبايل */
+  position: absolute;
+  left: -95px;
   font-size: 0.75rem;
   color: var(--accent);
-  display: block;
-  margin-bottom: 4px;
+  font-weight: bold;
+  opacity: 0.8;
 }
 
 /* ========================= */
-/* 🧩 GRID */
+/* Tags احترافية */
 /* ========================= */
 
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+.tool-tag {
+  font-size: 0.75rem;
+  padding: 5px 12px;
+  background: rgba(45, 212, 191, 0.1);
+  color: var(--accent);
+  border: 1px solid rgba(45, 212, 191, 0.2);
+  border-radius: 50px;
+  transition: 0.3s;
+}
+
+.tool-tag:hover {
+  background: var(--accent);
+  color: #fff;
 }
 
 /* ========================= */
-/* 🧱 SKILLS */
+/* Skills تحسين */
 /* ========================= */
 
 .skill-box {
-  padding: 0.6rem 1rem;
-  border-radius: 10px;
+  padding: 0.7rem 1.2rem;
+  border-radius: 12px;
   border: 1px solid var(--border-color);
-  background: var(--card-bg);
-  font-size: 0.85rem;
+  background-color: var(--card-bg);
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.skill-box:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
 }
 
 /* ========================= */
-/* 📱 MOBILE */
+/* تحسين النصوص */
 /* ========================= */
 
-@media (max-width: 768px) {
-
-  .container {
-    padding: 0 1rem;
-  }
-
-  .navbar {
-    padding: 0 1rem;
-  }
-
-  .nav-links {
-    display: none;
-  }
-
-  .hero-container {
-    padding: 100px 1rem 2rem;
-  }
-
-  .hero-title {
-    font-size: 32px;
-  }
-
-  .hero-title span {
-    font-size: 20px;
-  }
-
-  .hero-desc {
-    font-size: 15px;
-  }
-
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
+p {
+  color: var(--text-sub);
+  line-height: 1.7;
 }
+
+/* Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+
+.company {
+  color: var(--accent);
+  font-weight: bold;
+  font-size: 0.95rem;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+.company::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px; /* خط قصير حلو */
+  height: 2px;
+  background: var(--accent);
+  border-radius: 5px;
+}
+
