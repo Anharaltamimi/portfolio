@@ -9,7 +9,7 @@
 }
 
 body.dark {
-  --bg-color: #0b1220; /* أغمق = احترافي أكثر */
+  --bg-color: #0b1220;
   --text-main: #f3f4f6;
   --text-sub: #9ca3af;
   --border-color: #1f2937;
@@ -46,13 +46,18 @@ h2::after {
   border-radius: 10px;
 }
 
-/* تنسيق الأقسام */
+/* الأقسام */
 section { padding: 3rem 0; }
 #about { padding-top: 1rem; }
-.container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
 
 /* ========================= */
-/* 🔥 Cards (تحسين كبير هنا) */
+/* Cards */
 /* ========================= */
 
 .project-card,
@@ -66,7 +71,6 @@ section { padding: 3rem 0; }
   overflow: hidden;
 }
 
-/* Glow خفيف */
 .project-card::before,
 .experience-card::before {
   content: '';
@@ -82,7 +86,6 @@ section { padding: 3rem 0; }
   opacity: 1;
 }
 
-/* Hover احترافي */
 .project-card:hover,
 .experience-card:hover {
   transform: translateY(-8px) scale(1.01);
@@ -91,14 +94,13 @@ section { padding: 3rem 0; }
 }
 
 /* ========================= */
-/* Experience تحسين layout */
+/* Experience */
 /* ========================= */
 
 .experience-card {
-  padding-left: 3rem; /* ضبط المسافة */
+  padding-left: 3rem;
 }
 
-/* Header spacing */
 .experience-card h3 {
   margin-bottom: 5px;
 }
@@ -108,7 +110,7 @@ section { padding: 3rem 0; }
 }
 
 /* ========================= */
-/* Timeline احترافي */
+/* Timeline */
 /* ========================= */
 
 .timeline {
@@ -127,7 +129,6 @@ section { padding: 3rem 0; }
   background: linear-gradient(to bottom, var(--accent), transparent);
 }
 
-/* كل عنصر */
 .timeline-item {
   position: relative;
   margin-bottom: 1.5rem;
@@ -136,7 +137,6 @@ section { padding: 3rem 0; }
   gap: 12px;
 }
 
-/* الدائرة */
 .timeline-dot {
   position: absolute;
   left: -28px;
@@ -147,13 +147,11 @@ section { padding: 3rem 0; }
   box-shadow: 0 0 12px var(--accent);
 }
 
-/* النص */
 .timeline-item span:last-child {
   font-size: 0.95rem;
   color: var(--text-main);
 }
 
-/* التاريخ */
 .timeline-item .date {
   position: absolute;
   left: -95px;
@@ -164,7 +162,7 @@ section { padding: 3rem 0; }
 }
 
 /* ========================= */
-/* Tags احترافية */
+/* Tags */
 /* ========================= */
 
 .tool-tag {
@@ -183,7 +181,7 @@ section { padding: 3rem 0; }
 }
 
 /* ========================= */
-/* Skills تحسين */
+/* Skills */
 /* ========================= */
 
 .skill-box {
@@ -201,7 +199,7 @@ section { padding: 3rem 0; }
 }
 
 /* ========================= */
-/* تحسين النصوص */
+/* نصوص */
 /* ========================= */
 
 p {
@@ -215,7 +213,6 @@ p {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
 }
-
 
 .company {
   color: var(--accent);
@@ -231,9 +228,75 @@ p {
   position: absolute;
   left: 0;
   bottom: 0;
-  width: 40px; /* خط قصير حلو */
+  width: 40px;
   height: 2px;
   background: var(--accent);
   border-radius: 5px;
 }
 
+/* ========================= */
+/* 📱 Mobile Fix */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  section {
+    padding: 2rem 0;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .project-card,
+  .experience-card {
+    padding: 1.2rem;
+  }
+
+  .experience-card {
+    padding-left: 1.2rem;
+  }
+
+  .timeline {
+    padding-left: 1.5rem;
+  }
+
+  .timeline::before {
+    left: 5px;
+  }
+
+  .timeline-dot {
+    left: -20px;
+  }
+
+  .timeline-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* أهم إصلاح 🔥 */
+  .timeline-item .date {
+    position: static;
+    display: block;
+    margin-bottom: 4px;
+    font-size: 0.7rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ========================= */
+/* 💻 Tablet تحسين */
+/* ========================= */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
