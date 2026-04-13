@@ -1,0 +1,238 @@
+/* الألوان والخطوط */
+:root {
+  --bg-color: #ffffff;
+  --text-main: #111827;
+  --text-sub: #4b5563;
+  --border-color: #e5e7eb;
+  --card-bg: #f9fafb;
+  --accent: #2dd4bf;
+}
+
+body.dark {
+  --bg-color: #0b1220; /* أغمق = احترافي أكثر */
+  --text-main: #f3f4f6;
+  --text-sub: #9ca3af;
+  --border-color: #1f2937;
+  --card-bg: rgba(17, 24, 39, 0.7);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: 'Inter', sans-serif;
+  transition: all 0.3s ease;
+}
+
+/* العناوين */
+h2 {
+  font-size: 2.2rem;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 12px;
+  margin-bottom: 2rem;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right, var(--accent), transparent);
+  border-radius: 10px;
+}
+
+/* تنسيق الأقسام */
+section { padding: 3rem 0; }
+#about { padding-top: 1rem; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+/* ========================= */
+/* 🔥 Cards (تحسين كبير هنا) */
+/* ========================= */
+
+.project-card,
+.experience-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 1.8rem;
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glow خفيف */
+.project-card::before,
+.experience-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(45,212,191,0.15), transparent 60%);
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.project-card:hover::before,
+.experience-card:hover::before {
+  opacity: 1;
+}
+
+/* Hover احترافي */
+.project-card:hover,
+.experience-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  border-color: var(--accent);
+  box-shadow: 0 10px 40px rgba(45, 212, 191, 0.15);
+}
+
+/* ========================= */
+/* Experience تحسين layout */
+/* ========================= */
+
+.experience-card {
+  padding-left: 3rem; /* ضبط المسافة */
+}
+
+/* Header spacing */
+.experience-card h3 {
+  margin-bottom: 5px;
+}
+
+.experience-card p {
+  margin: 0;
+}
+
+/* ========================= */
+/* Timeline احترافي */
+/* ========================= */
+
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+  margin-top: 1.5rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+}
+
+/* كل عنصر */
+.timeline-item {
+  position: relative;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* الدائرة */
+.timeline-dot {
+  position: absolute;
+  left: -28px;
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 12px var(--accent);
+}
+
+/* النص */
+.timeline-item span:last-child {
+  font-size: 0.95rem;
+  color: var(--text-main);
+}
+
+/* التاريخ */
+.timeline-item .date {
+  position: absolute;
+  left: -95px;
+  font-size: 0.75rem;
+  color: var(--accent);
+  font-weight: bold;
+  opacity: 0.8;
+}
+
+/* ========================= */
+/* Tags احترافية */
+/* ========================= */
+
+.tool-tag {
+  font-size: 0.75rem;
+  padding: 5px 12px;
+  background: rgba(45, 212, 191, 0.1);
+  color: var(--accent);
+  border: 1px solid rgba(45, 212, 191, 0.2);
+  border-radius: 50px;
+  transition: 0.3s;
+}
+
+.tool-tag:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ========================= */
+/* Skills تحسين */
+/* ========================= */
+
+.skill-box {
+  padding: 0.7rem 1.2rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  background-color: var(--card-bg);
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.skill-box:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+
+/* ========================= */
+/* تحسين النصوص */
+/* ========================= */
+
+p {
+  color: var(--text-sub);
+  line-height: 1.7;
+}
+
+/* Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+
+.company {
+  color: var(--accent);
+  font-weight: bold;
+  font-size: 0.95rem;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+.company::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px; /* خط قصير حلو */
+  height: 2px;
+  background: var(--accent);
+  border-radius: 5px;
+}
