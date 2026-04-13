@@ -237,3 +237,81 @@ p {
   border-radius: 5px;
 }
 
+/* ========================= */
+/* 📱 MOBILE RESPONSIVE FIX */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+  /* تقليل padding العام */
+  .container {
+    padding: 0 1rem;
+  }
+
+  section {
+    padding: 2rem 0;
+  }
+
+  /* العناوين */
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  /* الكروت */
+  .project-card,
+  .experience-card {
+    padding: 1.2rem;
+    border-radius: 16px;
+  }
+
+  /* إصلاح padding */
+  .experience-card {
+    padding-left: 1.5rem;
+  }
+
+  /* ========================= */
+  /* 🔥 Timeline FIX */
+  /* ========================= */
+
+  .timeline {
+    padding-left: 1.2rem;
+  }
+
+  .timeline::before {
+    left: 5px;
+  }
+
+  .timeline-dot {
+    left: -18px;
+  }
+
+  /* أهم تعديل 🔥 */
+  .timeline-item .date {
+    position: static;
+    display: block;
+    margin-bottom: 4px;
+    font-size: 0.7rem;
+  }
+
+  /* ========================= */
+  /* 📦 Grid FIX */
+  /* ========================= */
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  /* Skills */
+  .skill-box {
+    font-size: 0.8rem;
+    padding: 0.6rem 1rem;
+  }
+
+  /* Tags */
+  .tool-tag {
+    font-size: 0.7rem;
+    padding: 4px 10px;
+  }
+
+}
